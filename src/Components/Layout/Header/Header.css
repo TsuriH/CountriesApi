@@ -1,0 +1,34 @@
+.Header {
+    height: 100%;
+    background-color: var(--Dark-Blue);
+    color: white;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0em 3.5%;
+}
+
+.Header button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    color: white;
+}
+
+.Header button .font-awesome-moon {
+    transform: rotate(-30deg);
+}
+
+
+@media (min-width: 1024px) {
+    .Header {
+        font-size: 1rem;
+    }
+
+    .Header button {
+        font-size: 1rem;
+    }
+}
