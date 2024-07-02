@@ -1,4 +1,86 @@
 .Main {
     height: 100%;
-    
+    background-color: var(--Very-Dark-Blue-bg);
+    padding: 1.5em 1em;
+}
+
+.Main .search-bar {
+    padding: 1rem;
+    background-color: var(--Dark-Blue);
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.Main .search-bar input {
+    background: none;
+    border: none;
+    color: white;
+    outline: none;
+}
+
+.Main .main-header {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem
+}
+
+.Main .options-wrapper {
+    overflow: hidden;
+    transition: height 0.4s ease-in;
+}
+
+.Main .dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    width: 180px;
+
+}
+
+.Main .dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Main .drop-icon {
+    color: white;
+    font-size: 0.6em;
+}
+
+.Main .dropdown-list,
+.Main .dropdown-header {
+    background-color: var(--Dark-Blue);
+    border-radius: 5px;
+}
+
+.Main .dropdown-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5em 0em;
+}
+
+
+.Main .dropdown-list button,
+.Main .dropdown-header button {
+    background: none;
+    border: none;
+    color: white;
+    text-align: start;
+    padding: 1em;
+}
+
+.Main .drop-icon {
+    padding: 1em;
+}
+
+.Main .dropdown-list button {
+    padding: 0.5em 1em;
+}
+
+.Main .dropdown-list button:hover {
+    background: var(--Dark-Gray);
+    cursor: pointer;
 }
