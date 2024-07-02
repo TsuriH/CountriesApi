@@ -2,6 +2,7 @@ import { faChevronDown, faMagnifyingGlass } from "@fortawesome/free-solid-svg-ic
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Main.css";
 import { useState } from "react";
+import { CountryCard } from "../../Countries/CountryCard/CountryCard";
 
 export function Main(): JSX.Element {
 
@@ -25,13 +26,34 @@ export function Main(): JSX.Element {
                         <FontAwesomeIcon icon={faChevronDown} className="drop-icon" />
                     </div>
 
-                    <div className="options-wrapper" style={{ height: optionsAreOpen ? '200px' : '0px'}}  >
+                    <div className="options-wrapper" style={{ height: optionsAreOpen ? '200px' : '0px' }}  >
                         <div className="dropdown-list">
-                            <button >Africa</button>
-                            <button>America</button>
-                            <button>Asia</button>
-                            <button>Europe</button>
-                            <button>Oceania</button>
+
+                            <button onClick={() => {
+                                setDropdownHeader(prevState => "Africa")
+                                setOptionsAreOpen(prevState => false)
+
+                            }}>Africa</button>
+                            <button onClick={() => {
+                                setDropdownHeader(prevState => "America")
+                                setOptionsAreOpen(prevState => false)
+                            }}>America</button>
+
+                            <button onClick={() => {
+                                setDropdownHeader(prevState => "Asia")
+                                setOptionsAreOpen(prevState => false)
+                            }}>Asia</button>
+
+                            <button onClick={() => {
+                                setDropdownHeader(prevState => "Europe")
+                                setOptionsAreOpen(prevState => false)
+                            }}>Europe</button>
+
+                            <button onClick={() => {
+                                setDropdownHeader(prevState => "Oceania")
+                                setOptionsAreOpen(prevState => false)
+                            }}>Oceania</button>
+
                         </div>
 
                     </div>
@@ -40,6 +62,15 @@ export function Main(): JSX.Element {
             </div>
 
             <div className="countries-container">
+
+                <CountryCard />
+                <CountryCard />
+                <CountryCard />
+                <CountryCard />
+                <CountryCard />
+                <CountryCard />
+                <CountryCard />
+                <CountryCard />
 
             </div>
 

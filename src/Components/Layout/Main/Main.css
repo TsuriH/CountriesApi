@@ -84,3 +84,27 @@
     background: var(--Dark-Gray);
     cursor: pointer;
 }
+
+.Main .countries-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 1024px) {
+
+    .Main .search-bar {
+        width: 35%;
+    }
+
+    .Main .main-header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0em 2em;
+    }
+
+}
