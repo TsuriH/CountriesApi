@@ -1,5 +1,4 @@
 import "./CountryCard.css";
-import brazilFlag from "../../../data.json"
 
 interface CountryCardProps {
     flag: string;
@@ -21,9 +20,9 @@ export function CountryCard(props: CountryCardProps): JSX.Element {
 
             <div className="card-info">
                 <h2>{props.countryName}</h2>
-                <p>Population: {props.population}</p>
-                <p>Region:  {props.region}</p>
-                <p>Capital:  {props.capital}</p>
+                <p><span>Population:</span>  {props.population}</p>
+                <p><span>Region: </span> {props.region}</p>
+                <p><span>Capital:</span>  {props.capital}</p>
             </div>
 
         </div>

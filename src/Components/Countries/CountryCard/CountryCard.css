@@ -1,9 +1,10 @@
 .CountryCard {
     width: 264px;
-    height: 336px;
+    height: 320px;
     background-color: var(--Dark-Blue);
     border-radius: 5px;
     overflow: hidden;
+
 }
 
 .CountryCard .card-info {
@@ -20,11 +21,20 @@
 
 .CountryCard .card-info p {
     font-size: 0.8rem;
-    ;
+    font-weight: 100;
+}
 
+.CountryCard .card-info p span {
+    font-weight: 800;
+}
+
+.CountryCard .card-flag {
+    width: 264px;
+    height: 160px;
 }
 
 .CountryCard .card-flag img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }

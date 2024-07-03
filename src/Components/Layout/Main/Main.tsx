@@ -9,7 +9,15 @@ export function Main(): JSX.Element {
     const [region, setRegion] = useState("Filter by Region")
     const [optionsAreOpen, setOptionsAreOpen] = useState(false)
 
+    const filteredCountries = region === "All" || region === "Filter by Region" ?
+        countriesListJson : countriesListJson.filter(country => country.region === region)
 
+    const regionsNames = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"]
+
+    const handleRegionBtnClick = (regionName: string) => {
+        setRegion(prevState => regionName)
+        setOptionsAreOpen(prevState => false)
+    }
 
     return (
         <div className="Main">
@@ -31,40 +39,13 @@ export function Main(): JSX.Element {
                     <div className="options-wrapper" style={{ height: optionsAreOpen ? '200px' : '0px' }}  >
                         <div className="dropdown-list">
 
-                            <button onClick={() => {
-                                setRegion(prevState => "All")
-                                setOptionsAreOpen(prevState => false)
+                            {
+                                regionsNames.map(regionName =>
+                                    (<button onClick={() => { handleRegionBtnClick(regionName) }}>{regionName}</button>))
 
-                            }}>All</button>
-
-                            <button onClick={() => {
-                                setRegion(prevState => "Africa")
-                                setOptionsAreOpen(prevState => false)
-
-                            }}>Africa</button>
-
-                            <button onClick={() => {
-                                setRegion(prevState => "Americas")
-                                setOptionsAreOpen(prevState => false)
-                            }}>America</button>
-
-                            <button onClick={() => {
-                                setRegion(prevState => "Asia")
-                                setOptionsAreOpen(prevState => false)
-                            }}>Asia</button>
-
-                            <button onClick={() => {
-                                setRegion(prevState => "Europe")
-                                setOptionsAreOpen(prevState => false)
-                            }}>Europe</button>
-
-                            <button onClick={() => {
-                                setRegion(prevState => "Oceania")
-                                setOptionsAreOpen(prevState => false)
-                            }}>Oceania</button>
+                            }
 
                         </div>
-
                     </div>
 
                 </div>
@@ -72,88 +53,24 @@ export function Main(): JSX.Element {
 
             <div className="countries-container">
 
-                {countriesListJson &&
-                    (region === "All" || region === "Filter by Region") ?
-                    (countriesListJson.map((country, index) =>
-                        <CountryCard key={index}
+                {
+                    filteredCountries.map((country, index) => (
+                        <CountryCard
+                            key={index}
                             flag={country.flags.svg}
                             countryName={country.name}
                             population={country.population}
                             region={country.region}
-                            capital={country.capital} />
-                    )) :
-                    <>
-                        {region === "Africa" && (countriesListJson.map((country, index) =>
-                            country.region === "Africa" ?
-                                <CountryCard key={index}
-                                    flag={country.flags.svg}
-                                    countryName={country.name}
-                                    population={country.population}
-                                    region={country.region}
-                                    capital={country.capital} /> : ""
-                        ))}
-
-                        {region === "Asia" && (countriesListJson.map((country, index) =>
-                            country.region === "Asia" ?
-                                <CountryCard key={index}
-                                    flag={country.flags.svg}
-                                    countryName={country.name}
-                                    population={country.population}
-                                    region={country.region}
-                                    capital={country.capital} /> : ""
-                        ))}
-
-                        {region === "Europe" && (countriesListJson.map((country, index) =>
-                            country.region === "Europe" ?
-                                <CountryCard key={index}
-                                    flag={country.flags.svg}
-                                    countryName={country.name}
-                                    population={country.population}
-                                    region={country.region}
-                                    capital={country.capital} /> : ""
-                        ))}
-
-
-                        {region === "Oceania" && (countriesListJson.map((country, index) =>
-                            country.region === "Oceania" ?
-                                <CountryCard key={index}
-                                    flag={country.flags.svg}
-                                    countryName={country.name}
-                                    population={country.population}
-                                    region={country.region}
-                                    capital={country.capital} /> : ""
-                        ))}
-
-                        {region === "Americas" && (countriesListJson.map((country, index) =>
-                            country.region === "Americas" ?
-                                <CountryCard key={index}
-                                    flag={country.flags.svg}
-                                    countryName={country.name}
-                                    population={country.population}
-                                    region={country.region}
-                                    capital={country.capital} /> : ""
-                        ))}
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </>
+                            capital={country.capital}
+                        />
+                    ))
                 }
 
 
 
             </div>
 
-        </div>
+        </div >
     );
 }
 
