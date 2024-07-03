@@ -2,6 +2,8 @@
     width: 264px;
     height: 336px;
     background-color: var(--Dark-Blue);
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .CountryCard .card-info {
