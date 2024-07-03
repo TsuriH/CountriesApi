@@ -8,16 +8,28 @@ export function Main(): JSX.Element {
 
     const [region, setRegion] = useState("Filter by Region")
     const [optionsAreOpen, setOptionsAreOpen] = useState(false)
+    const [inputValue, setInputValue] = useState("")
 
-    const filteredCountries = region === "All" || region === "Filter by Region" ?
-        countriesListJson : countriesListJson.filter(country => country.region === region)
+    const updateInputValue = (e: any) => {
+        setInputValue(prev => e.target.value)
+    }
+
+    // const filteredCountries = region === "All" || region === "Filter by Region" ?
+    //     countriesListJson : countriesListJson.filter(country => country.region === region)
+
+    const filteredCountries = countriesListJson.filter(country => {
+        const matchesRegion = region === "All" || region === "Filter by Region" || country.region === region
+        const matchesSearch = country.name.toLowerCase().startsWith(inputValue.toLocaleLowerCase())
+        return matchesRegion && matchesSearch
+    })
 
     const regionsNames = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"]
 
     const handleRegionBtnClick = (regionName: string) => {
         setRegion(prevState => regionName)
-        setOptionsAreOpen(prevState => false)
+
     }
+
 
     return (
         <div className="Main">
@@ -26,7 +38,7 @@ export function Main(): JSX.Element {
                     <FontAwesomeIcon icon={faMagnifyingGlass} style={{
                         color: "white"
                     }} />
-                    <input type="text" placeholder="Search for a country..." />
+                    <input type="text" placeholder="Search for a country..." onChange={(e) => updateInputValue(e)} />
                 </div>
 
                 <div className="dropdown">
@@ -40,8 +52,8 @@ export function Main(): JSX.Element {
                         <div className="dropdown-list">
 
                             {
-                                regionsNames.map(regionName =>
-                                    (<button onClick={() => { handleRegionBtnClick(regionName) }}>{regionName}</button>))
+                                regionsNames.map((regionName, index) =>
+                                    (<button key={index} onClick={() => { handleRegionBtnClick(regionName) }}>{regionName}</button>))
 
                             }
 
