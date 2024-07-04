@@ -11,7 +11,7 @@ export function Main(): JSX.Element {
     const [inputValue, setInputValue] = useState("")
 
     const updateInputValue = (e: any) => {
-        setInputValue(prev => e.target.value)
+        setInputValue(e.target.value)
     }
 
     // const filteredCountries = region === "All" || region === "Filter by Region" ?
@@ -26,8 +26,8 @@ export function Main(): JSX.Element {
     const regionsNames = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"]
 
     const handleRegionBtnClick = (regionName: string) => {
-        setRegion(prevState => regionName)
-
+        setRegion(regionName)
+        setOptionsAreOpen(false)
     }
 
 

@@ -4,8 +4,17 @@
     background-color: var(--Dark-Blue);
     border-radius: 5px;
     overflow: hidden;
-
 }
+
+.CountryCard:hover {
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+/* .CountryCard .NavLink>div p {
+    text-decoration: none;
+
+} */
 
 .CountryCard .card-info {
     color: white;
