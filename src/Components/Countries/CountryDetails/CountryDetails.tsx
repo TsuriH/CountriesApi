@@ -50,7 +50,9 @@ export function CountryDetails(): JSX.Element {
                 <h3>Border Countries:</h3>
                 <div className="bordered-countries-con">
                     {chosenCountry.borders?.map(b => (
-                        <button className="bordered-country-btn">{borderCountryName(b)}</button>
+                        <NavLink to={`/${borderCountryName(b)}`}>
+                            <button className="bordered-country-btn">{borderCountryName(b)}</button>
+                        </NavLink>
                     ))
                     }
 

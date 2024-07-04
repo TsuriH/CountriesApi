@@ -27,6 +27,11 @@
     border-radius: 2px;
 }
 
+.CountryDetails .bordered-country-btn:hover {
+    cursor :pointer;
+    border: 1px solid white;
+}
+
 .CountryDetails .back-btn:hover {
     cursor: pointer;
     border: 1px solid white;
