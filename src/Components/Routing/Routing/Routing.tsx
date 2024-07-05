@@ -3,16 +3,18 @@ import { Main } from "../../Layout/Main/Main";
 import "./Routing.css";
 import { Routes, Route, useParams } from "react-router-dom"
 
+interface RoutingProps {
+    isDarkMode: boolean;
+}
 
+export function Routing(props: RoutingProps): JSX.Element {
 
-export function Routing(): JSX.Element {
-
-    const {name} = useParams()
+    const { name } = useParams()
 
     return (
         <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path={`:name`} element={<CountryDetails/>} />
+            <Route path="/" element={<Main isDarkMode={props.isDarkMode} />} />
+            <Route path={`:name`} element={<CountryDetails />} />
         </Routes>
 
     );

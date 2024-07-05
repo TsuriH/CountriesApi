@@ -7,7 +7,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 0em 3.5%;
-    
 }
 
 .Header button {
@@ -17,12 +16,21 @@
     align-items: center;
     gap: 1em;
     color: white;
+    padding: 0.5em 1em;
+}
+
+.Header button:hover {
+    cursor: pointer;
+    border: 1px solid black;
 }
 
 .Header button .font-awesome-moon {
     transform: rotate(-30deg);
 }
 
+.Header .mode-color {
+    color: black;
+}
 
 @media (min-width: 1024px) {
     .Header {

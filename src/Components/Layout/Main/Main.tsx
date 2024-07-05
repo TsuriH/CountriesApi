@@ -4,7 +4,14 @@ import "./Main.css";
 import { useState } from "react";
 import { CountryCard } from "../../Countries/CountryCard/CountryCard";
 import countriesListJson from "../../../data.json"
-export function Main(): JSX.Element {
+
+interface MainProps {
+    isDarkMode: boolean;
+}
+
+
+
+export function Main(props: MainProps): JSX.Element {
 
     const [region, setRegion] = useState("Filter by Region")
     const [optionsAreOpen, setOptionsAreOpen] = useState(false)
@@ -32,32 +39,37 @@ export function Main(): JSX.Element {
 
 
     return (
-        <div className="Main">
+        <div className="Main"
+            style={{ backgroundColor: props.isDarkMode ? "" : "var(--Very-Light-Gray)" }}>
+
             <div className="main-header">
-                <div className="search-bar">
+
+                <div className="search-bar" style={{ background: props.isDarkMode ? "" : "white" }}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} style={{
-                        color: "white"
+                        color: props.isDarkMode ? "white" : "var(--Dark-Gray)"
                     }} />
-                    <input type="text" placeholder="Search for a country..." onChange={(e) => updateInputValue(e)} />
+                    <input type="text" placeholder="Search for a country..." onChange={(e) => updateInputValue(e)} className={`${props.isDarkMode ? "" : "white-mode"}`} />
                 </div>
 
-                <div className="dropdown">
+                <div className="dropdown" >
 
-                    <div className="dropdown-header" onClick={() => setOptionsAreOpen(!optionsAreOpen)}>
-                        <button >{region} </button>
-                        <FontAwesomeIcon icon={faChevronDown} className="drop-icon" />
+                    <div className="dropdown-header" onClick={() => setOptionsAreOpen(!optionsAreOpen)} style={{ background: props.isDarkMode ? "" : "white" }}>
+                        <button style={{ color: props.isDarkMode ? "" : "var(--Very-Dark-Blue)" }}>{region}</button>
+                        <FontAwesomeIcon icon={faChevronDown} className="drop-icon" style={{ color: props.isDarkMode ? "" : "var(--Very-Dark-Blue)" }} />
                     </div>
 
                     <div className="options-wrapper" style={{ height: optionsAreOpen ? '200px' : '0px' }}  >
-                        <div className="dropdown-list">
+
+                        <div className="dropdown-list" style={{ background: props.isDarkMode ? "" : "white" }}>
 
                             {
                                 regionsNames.map((regionName, index) =>
-                                    (<button key={index} onClick={() => { handleRegionBtnClick(regionName) }}>{regionName}</button>))
+                                    (<button key={index} style={{ color: props.isDarkMode ? "" : "var(--Very-Dark-Blue)" }} onClick={() => { handleRegionBtnClick(regionName) }}>{regionName}</button>))
 
                             }
 
                         </div>
+
                     </div>
 
                 </div>

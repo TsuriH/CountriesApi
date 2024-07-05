@@ -15,7 +15,7 @@ export function CountryCard(props: CountryCardProps): JSX.Element {
     return (
 
         <div className="CountryCard">
-            <NavLink to={`/${props.countryName}`}>
+            <NavLink to={`/${props.countryName}`} className="test">
                 <div className="card-flag">
                     <img src={props.flag} alt="" />
                 </div>
