@@ -16,9 +16,6 @@ export function CountryDetails(): JSX.Element {
         return countryBorder?.name
     }
 
-
-
-
     return (
         <div className="CountryDetails">
 

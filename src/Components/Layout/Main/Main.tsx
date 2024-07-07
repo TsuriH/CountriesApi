@@ -9,8 +9,6 @@ interface MainProps {
     isDarkMode: boolean;
 }
 
-
-
 export function Main(props: MainProps): JSX.Element {
 
     const [region, setRegion] = useState("Filter by Region")
@@ -20,9 +18,6 @@ export function Main(props: MainProps): JSX.Element {
     const updateInputValue = (e: any) => {
         setInputValue(e.target.value)
     }
-
-    // const filteredCountries = region === "All" || region === "Filter by Region" ?
-    //     countriesListJson : countriesListJson.filter(country => country.region === region)
 
     const filteredCountries = countriesListJson.filter(country => {
         const matchesRegion = region === "All" || region === "Filter by Region" || country.region === region
