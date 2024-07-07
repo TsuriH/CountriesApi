@@ -24,43 +24,52 @@ export function CountryDetails(): JSX.Element {
 
             <NavLink to={"/"}><button className="back-btn"><FontAwesomeIcon icon={faArrowLeftLong} />Back</button></NavLink>
 
-            <div className="flag-img-con">
-                <img src={chosenCountry.flag} alt="" />
-            </div>{ }
+            <div className="country-info">
 
-            <div className="main-details">
-                <h2>{chosenCountry.name}</h2>
-                <p><span>Native Name:</span> {chosenCountry.nativeName}</p>
-                <p><span>Population:</span> {chosenCountry.population}</p>
-                <p><span>Region:</span> {chosenCountry.region}</p>
-                <p><span>Sub Region:</span> {chosenCountry.subregion}</p>
-                <p><span>Capital:</span> {chosenCountry.capital}</p>
-            </div>
+                <div className="flag-img-con">
+                    <img src={chosenCountry.flag} alt="" />
+                </div>{ }
 
-            <div className="extra-details">
-                <p><span>Top Level Domain:</span> {chosenCountry.topLevelDomain}</p>
-                <p><span>Currencies:</span>
-                    {chosenCountry.currencies?.map(c => <p>{c.name}</p>)}
-                </p>
+                <div className="content">
+                    <div className="content-main">
 
-                <p><span>Languages:</span> {chosenCountry.languages?.map(l => <p>{l.name}</p>)}</p>
-            </div>
+                        <div className="basic-details">
+                            <h2>{chosenCountry.name}</h2>
+                            <p><span>Native Name:</span> {chosenCountry.nativeName}</p>
+                            <p><span>Population:</span> {chosenCountry.population}</p>
+                            <p><span>Region:</span> {chosenCountry.region}</p>
+                            <p><span>Sub Region:</span> {chosenCountry.subregion}</p>
+                            <p><span>Capital:</span> {chosenCountry.capital}</p>
+                        </div>
 
-            <div className="border-countries">
-                <h3>Border Countries:</h3>
-                <div className="bordered-countries-con">
-                    {chosenCountry.borders?.map(b => (
-                        <NavLink to={`/${borderCountryName(b)}`}>
-                            <button className="bordered-country-btn">{borderCountryName(b)}</button>
-                        </NavLink>
-                    ))
-                    }
+                        <div className="extra-details">
+                            <p><span>Top Level Domain:</span> {chosenCountry.topLevelDomain}</p>
+                            <p><span>Currencies:</span>
+                                {chosenCountry.currencies?.map((c, index) => <p key={index}>{c.name}</p>)}
+                            </p>
+                            <p className="lang-con"><span>Languages:</span> {chosenCountry.languages?.map((l, index) => <p key={index}>{l.name}</p>)}</p>
+                        </div>
 
+                    </div>
+
+                    <div className="border-countries">
+
+                        <h3>Border Countries:</h3>
+                        <div className="bordered-countries-con">
+                            {chosenCountry.borders?.map((b, index) => (
+                                <NavLink key={index} to={`/${borderCountryName(b)}`}>
+                                    <button className="bordered-country-btn">{borderCountryName(b)}</button>
+                                </NavLink>
+                            ))
+                            }
+                        </div>
+
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+        </div >
     );
 }

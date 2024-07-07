@@ -17,6 +17,8 @@
     gap: 1em;
     color: white;
     padding: 0.5em 1em;
+    border: 1px solid transparent;
+
 }
 
 .Header button:hover {
