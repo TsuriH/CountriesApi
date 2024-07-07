@@ -9,7 +9,6 @@ export function Layout(): JSX.Element {
 
     const changeMode = () => {
         SetDarkMode(!darkMode)
-        alert(darkMode)
     }
     return (
         <div className="Layout">
